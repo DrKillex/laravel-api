@@ -22,7 +22,7 @@
             <li>description: {{ $record->record_description }}</li>
             <li>completed: {{ $record->completed }}</li>
             @if ($record->image)
-                <li>image: <img src="{{ asset('storage/' . $record->image) }}" alt=""></li>
+                <li>image: <img src="{{$record->image}}" alt=""></li>
             @endif
         </ul>
     </div>
