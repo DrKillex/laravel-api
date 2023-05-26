@@ -16,4 +16,22 @@ class RecordController extends Controller
             'results' => $records
         ]);
     }
+    public function show(string $slug)
+    {
+
+        $record = Record::where('slug', $slug)->with('type', 'technologies')->first();
+
+
+        if ($record) {
+            return response()->json([
+                'success' => true,
+                'results' => $record
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'results' => null
+            ], 404);
+        }
+    }
 }

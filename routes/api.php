@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('records', [RecordController::class, 'index']);
+Route::get('record/{slug}', [RecordController::class, 'show']);
