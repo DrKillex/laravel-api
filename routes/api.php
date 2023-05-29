@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\RecordController;
+use App\Http\Controllers\Api\TechnologyController;
 use App\Http\Controllers\Api\TypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,5 @@ Route::get('records', [RecordController::class, 'index']);
 Route::get('records/{slug}', [RecordController::class, 'show']);
 Route::get('types', [TypeController::class, 'index']);
 Route::get('types/{slug}', [TypeController::class, 'show']);
+Route::get('technologies', [TechnologyController::class, 'index']);
+Route::get('technologies/{slug}', [TechnologyController::class, 'show']);
