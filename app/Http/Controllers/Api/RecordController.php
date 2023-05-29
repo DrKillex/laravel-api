@@ -10,7 +10,7 @@ class RecordController extends Controller
 {
     public function index(){
 
-        $records = Record::with('type', 'technologies')->get();
+        $records = Record::with('type', 'technologies')->paginate(6);
         return response()->json([
             'success' => true,
             'results' => $records
