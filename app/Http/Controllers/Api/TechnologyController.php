@@ -3,28 +3,28 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Type;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 
-class TypeController extends Controller
+class TechnologyController extends Controller
 {
     public function index()
     {
-        $types = Type::all();
+        $technologies = Technology::all();
 
         return response()->json([
             'success' => true,
-            'results' => $types
+            'results' => $technologies
         ]);
     }
 
     public function show(string $slug){
-        $type = Type::where('slug', $slug)->with('records')->first();
+        $technology = Technology::where('slug', $slug)->with('records')->first();
 
-        if ($type) {
+        if ($technology) {
             return response()->json([
                 'success' => true,
-                'results' => $type
+                'results' => $technology
             ]);
         } else {
             return response()->json([
