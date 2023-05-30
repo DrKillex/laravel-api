@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\Admin\RecordController;
 use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\ProfileController;
@@ -31,6 +32,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('records', RecordController::class)->parameters(['records'=>'record:slug']);
     Route::resource('technologies', TechnologyController::class)->parameters(['technologies'=>'technology:slug']);
     Route::resource('types', TypeController::class)->parameters(['types'=>'type:slug']);
+    Route::get('leads', [LeadController::class, 'index'])->name('leads.index');
+    Route::delete('leads/{lead}', [LeadController::class, 'destroy'])->name('leads.destroy');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
