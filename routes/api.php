@@ -22,10 +22,17 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+// rotte api dei progetti
 Route::get('records', [RecordController::class, 'index']);
 Route::get('records/{slug}', [RecordController::class, 'show']);
+
+// rotte api dei types
 Route::get('types', [TypeController::class, 'index']);
 Route::get('types/{slug}', [TypeController::class, 'show']);
+
+// rotte api delle technologies
 Route::get('technologies', [TechnologyController::class, 'index']);
 Route::get('technologies/{slug}', [TechnologyController::class, 'show']);
+
+// rotte api delle leads
 Route::post('leads', [LeadController::class, 'store']);

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class TechnologyController extends Controller
 {
+    // api tutte le technologies
     public function index()
     {
         $technologies = Technology::all();
@@ -18,6 +19,7 @@ class TechnologyController extends Controller
         ]);
     }
 
+    // api technology singola cercato tramite slug nel db con progetti
     public function show(string $slug){
         $technology = Technology::where('slug', $slug)->with('records')->first();
 
